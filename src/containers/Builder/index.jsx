@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import {ROUTES} from '../../routes/constants';
 
-import styles from './Builder.module.css';
+import styles from './index.module.css';
 
 const Builder = () => {
     return (
