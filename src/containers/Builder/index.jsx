@@ -1,14 +1,14 @@
-import { Link } from 'react-router-dom';
-
-import {ROUTES} from '../../routes/constants';
+import { useSelector } from 'react-redux';
 
 import styles from './index.module.css';
 
 const Builder = () => {
+    const selectedTemplate = useSelector((state) => state?.commonReducer?.selectedTemplate);
+
+    console.log("======== selectedTemplate", selectedTemplate);
+
     return (
         <div className={styles.builderWrapper}>
-            <h1>hello</h1>
-            <Link to={ROUTES.HOMEPAGE}>redirect to homepage</Link>
         </div>
     )
 };

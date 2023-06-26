@@ -11,15 +11,24 @@
     padding: 12px 24px;
 }
 
-.fakeAvatar {
+.avatar {
     width: 36px;
     height: 36px;
 
     border-radius: 50%;
     border: 2px solid black;
+
+    object-fit: cover;
 }
 
-.exportButton {
+.buttonWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.customButton {
     padding: 8px 36px;
 
     border: none;
@@ -32,6 +41,6 @@
     transition: opacity 0.3s ease;
 }
 
-.exportButton:hover {
+.customButton:hover {
     opacity: 0.8;
 }
