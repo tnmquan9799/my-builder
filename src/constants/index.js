@@ -1,1 +1,1 @@
-export const TEMPLATE_KEY = '_template';
+export const TEMPLATE_KEY = "_template";

@@ -1,8 +1,8 @@
 export const ELEMENT_TYPE = {
-    IMAGE: 'image',
-    HEADER: 'header',
-    PARAGRAPH: 'paragraph',
-    BUTTON: 'button',
+    IMAGE: "image",
+    HEADER: "header",
+    PARAGRAPH: "paragraph",
+    BUTTON: "button",
 }
 
 export const FONT_WEIGHT_OPTIONS = [
@@ -84,7 +84,7 @@ export const DEFAULT_PROPS_VALUE = {
 export const TEMPLATES = [
     {
         id: 1,
-        name: 'Starter template',
+        name: "Starter template",
         props: {
             backgroundColor: DEFAULT_PROPS_VALUE.TEMPLATE.BACKGROUND_COLOR,
             contentWidth: DEFAULT_PROPS_VALUE.TEMPLATE.CONTENT_WIDTH,
@@ -138,7 +138,7 @@ export const TEMPLATES = [
     },
     {
         id: 2,
-        name: 'Intermediate template',
+        name: "Intermediate template",
         props: {
             backgroundColor: DEFAULT_PROPS_VALUE.TEMPLATE.BACKGROUND_COLOR,
             contentWidth: DEFAULT_PROPS_VALUE.TEMPLATE.CONTENT_WIDTH,

@@ -10,7 +10,7 @@ const initialState = {
 };
 
 const commonSlice = createSlice({
-    name: 'common',
+    name: "common",
     initialState,
     reducers: {
         actionSetIsBuilderMode: (state, action) => {

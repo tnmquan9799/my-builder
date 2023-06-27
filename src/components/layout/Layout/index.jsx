@@ -1,14 +1,14 @@
-import { Outlet, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { Outlet, useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 import {actionSetIsBuilderMode} from "../../../store/common";
 
-import {ROUTES} from '../../../routes/constants';
+import {ROUTES} from "../../../routes/constants";
 
-import Header from '../Header';
+import Header from "../Header";
 
-import styles from './index.module.css';
+import styles from "./index.module.css";
 
 const Layout = () => {
     const dispatch = useDispatch();

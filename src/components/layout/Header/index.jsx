@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import {ROUTES} from "../../../routes/constants";
 
-import avatar from '../../../assets/images/avatar.jpg';
+import avatar from "../../../assets/images/avatar.jpg";
 
-import styles from './index.module.css';
+import styles from "./index.module.css";
 
 const Header = () => {
     const navigate = useNavigate();
@@ -37,7 +37,7 @@ const Header = () => {
 
     return (
         <div className={styles.headerWrapper}>
-            <img className={styles.avatar} src={avatar} alt='avatar' />
+            <img className={styles.avatar} src={avatar} alt="avatar" />
             {isBuilderMode && (
                 <div className={styles.buttonWrapper}>
                     <button className={styles.customButton} onClick={() => navigate(ROUTES.HOMEPAGE)}>Back to Homepage</button>

@@ -1,15 +1,15 @@
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-import { actionSetSelectedTemplate } from '../../store/common'; 
+import { actionSetSelectedTemplate } from "../../store/common"; 
 
-import {ROUTES} from '../../routes/constants';
+import {ROUTES} from "../../routes/constants";
 
-import { TEMPLATES } from '../../helpers/data/templates';
+import { TEMPLATES } from "../../helpers/data/templates";
 
-import { TEMPLATE_KEY } from '../../constants';
+import { TEMPLATE_KEY } from "../../constants";
 
-import styles from './index.module.css';
+import styles from "./index.module.css";
 
 const Homepage = () => {
     const navigate = useNavigate();
