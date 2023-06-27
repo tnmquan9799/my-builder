@@ -2,6 +2,7 @@ export const ELEMENT_TYPE = {
     IMAGE: 'image',
     HEADER: 'header',
     PARAGRAPH: 'paragraph',
+    BUTTON: 'button',
 }
 
 export const FONT_WEIGHT_OPTIONS = [
@@ -66,6 +67,17 @@ export const DEFAULT_PROPS_VALUE = {
         FONT_WEIGHT: "normal",
         CONTENT: "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         ALIGN: "center"
+    },
+    BUTTON: {
+        COLOR: "#000000",
+        FONT_SIZE: 14,
+        FONT_WEIGHT: "normal",
+        CONTENT: "Button",
+        BACKGROUND_COLOR: "#FFFFFF",
+        BORDER_COLOR: "#000000",
+        BORDER_RADIUS: "2", // 2%
+        PADDING_X: 20, // 20px
+        PADDING_Y: 8, // 8px
     }
 }
 
@@ -119,14 +131,6 @@ export const TEMPLATES = [
         elements: [
             {
                 id: 1,
-                type: ELEMENT_TYPE.IMAGE,
-                props: {
-                    contentWidth: DEFAULT_PROPS_VALUE.IMAGE.CONTENT_WIDTH,
-                    contentHeight: DEFAULT_PROPS_VALUE.IMAGE.CONTENT_HEIGHT
-                }
-            },
-            {
-                id: 2,
                 type: ELEMENT_TYPE.HEADER,
                 props: {
                     color: DEFAULT_PROPS_VALUE.HEADER.COLOR,
@@ -136,7 +140,7 @@ export const TEMPLATES = [
                 }
             },
             {
-                id: 3,
+                id: 2,
                 type: ELEMENT_TYPE.PARAGRAPH,
                 props: {
                     color: DEFAULT_PROPS_VALUE.PARAGRAPH.COLOR,
@@ -144,6 +148,21 @@ export const TEMPLATES = [
                     fontWeight: DEFAULT_PROPS_VALUE.PARAGRAPH.FONT_WEIGHT,
                     content: DEFAULT_PROPS_VALUE.PARAGRAPH.CONTENT,
                     align: DEFAULT_PROPS_VALUE.PARAGRAPH.ALIGN,
+                }
+            },
+            {
+                id: 3,
+                type: ELEMENT_TYPE.BUTTON,
+                props: {
+                    color: DEFAULT_PROPS_VALUE.BUTTON.COLOR,
+                    backgroundColor: DEFAULT_PROPS_VALUE.BUTTON.BACKGROUND_COLOR,
+                    borderColor: DEFAULT_PROPS_VALUE.BUTTON.BORDER_COLOR,
+                    borderRadius: DEFAULT_PROPS_VALUE.BUTTON.BORDER_RADIUS,
+                    paddingY: DEFAULT_PROPS_VALUE.BUTTON.PADDING_Y,
+                    paddingX: DEFAULT_PROPS_VALUE.BUTTON.PADDING_X,
+                    fontSize: DEFAULT_PROPS_VALUE.BUTTON.FONT_SIZE,
+                    fontWeight: DEFAULT_PROPS_VALUE.BUTTON.FONT_WEIGHT,
+                    content: DEFAULT_PROPS_VALUE.BUTTON.CONTENT
                 }
             }
         ]
