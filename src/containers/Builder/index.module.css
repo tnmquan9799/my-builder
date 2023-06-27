@@ -21,6 +21,11 @@
     border-left: 2px solid black;
 }
 
+
+.elementWrapper:hover {
+    border: 1px solid red !important;
+}
+
 .elementWrapper > img {
     border-radius: 8px;
 }

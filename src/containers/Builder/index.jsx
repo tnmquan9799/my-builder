@@ -119,7 +119,7 @@ const Builder = () => {
             <section className={styles.templatePanel}>
                 <div id='templateDisplay' style={{ ...TEMPLATE_DISPLAY_STYLE , backgroundColor: template?.props?.backgroundColor, width: template?.props?.contentWidth === "100" ? "auto" : `${template?.props?.contentWidth}%`}} onClick={(e) => handleSelectTemplate(e)}>
                     {template?.elements?.map(item => (
-                        <div key={item?.id} style={{...ELEMENT_WRAPPER_STYLE}} className={selectedElement?.id === item?.id ? styles.selectedElement : ""} onClick={(e) => handleSelectElement(e, item)}>
+                        <div key={item?.id} style={{...ELEMENT_WRAPPER_STYLE}} className={selectedElement?.id === item?.id ? styles.selectedElement : styles.elementWrapper} onClick={(e) => handleSelectElement(e, item)}>
                             {renderElement(item)}
                         </div>
                     ))}

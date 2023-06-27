@@ -6,9 +6,7 @@ const TextArea = ({ title, value, onChange }) => {
             <label htmlFor="text-area">
                 {title}:
             </label>
-            <textarea id="text-area" name="text-area" rows={10} cols={30} onChange={(e) => onChange(e?.target?.value)}>
-                {value}
-            </textarea>
+            <textarea id="text-area" name="text-area" rows={10} cols={30} defaultValue={value} onChange={(e) => onChange(e?.target?.value)} />
         </div>
     )
 }

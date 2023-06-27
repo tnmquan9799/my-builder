@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -12,7 +13,11 @@ const Header = () => {
 
     const isBuilderMode = useSelector((state) => state?.commonReducer?.isBuilderMode);
 
+    const [loading, setLoading] = useState(false);
+
     const handleExport = () => {
+        setLoading(true);
+
         const templateHTML = document.querySelector("#templateDisplay").outerHTML;
         const blob = new Blob([templateHTML], {type: "text/html"});
         const url = URL.createObjectURL(blob);
@@ -20,7 +25,10 @@ const Header = () => {
         document.body.appendChild(tempEl);
         tempEl.href = url;
         tempEl.download = "your-web.html";
-        tempEl.click();
+        setTimeout(() => {
+            tempEl.click();
+            setLoading(false);
+        }, 2000);
         setTimeout(() => {
             URL.revokeObjectURL(url);
             tempEl.parentNode.removeChild(tempEl);
@@ -33,7 +41,10 @@ const Header = () => {
             {isBuilderMode && (
                 <div className={styles.buttonWrapper}>
                     <button className={styles.customButton} onClick={() => navigate(ROUTES.HOMEPAGE)}>Back to Homepage</button>
-                    <button className={styles.customButton} onClick={handleExport}>Export</button>
+                    <button disabled={loading} className={styles.customButton} onClick={handleExport}>
+                        Export
+                        {loading && <div className={styles.loader} />}
+                    </button>
                 </div>
             )}
         </div>
