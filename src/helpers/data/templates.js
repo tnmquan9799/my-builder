@@ -89,36 +89,51 @@ export const TEMPLATES = [
             backgroundColor: DEFAULT_PROPS_VALUE.TEMPLATE.BACKGROUND_COLOR,
             contentWidth: DEFAULT_PROPS_VALUE.TEMPLATE.CONTENT_WIDTH,
         },
-        elements: [
+        slots: [
             {
                 id: 1,
-                type: ELEMENT_TYPE.IMAGE,
-                props: {
-                    contentWidth: DEFAULT_PROPS_VALUE.IMAGE.CONTENT_WIDTH,
-                    contentHeight: DEFAULT_PROPS_VALUE.IMAGE.CONTENT_HEIGHT
-                }
+                elements: [
+                    {
+                        id: 1,
+                        type: ELEMENT_TYPE.IMAGE,
+                        props: {
+                            contentWidth: DEFAULT_PROPS_VALUE.IMAGE.CONTENT_WIDTH,
+                            contentHeight: DEFAULT_PROPS_VALUE.IMAGE.CONTENT_HEIGHT
+                        }
+                    },
+                ]
             },
             {
                 id: 2,
-                type: ELEMENT_TYPE.HEADER,
-                props: {
-                    color: DEFAULT_PROPS_VALUE.HEADER.COLOR,
-                    fontSize: DEFAULT_PROPS_VALUE.HEADER.FONT_SIZE,
-                    fontWeight: DEFAULT_PROPS_VALUE.HEADER.FONT_WEIGHT,
-                    content: DEFAULT_PROPS_VALUE.HEADER.CONTENT
-                }
+                elements: [
+                    {
+                        id: 2,
+                        type: ELEMENT_TYPE.HEADER,
+                        props: {
+                            color: DEFAULT_PROPS_VALUE.HEADER.COLOR,
+                            fontSize: DEFAULT_PROPS_VALUE.HEADER.FONT_SIZE,
+                            fontWeight: DEFAULT_PROPS_VALUE.HEADER.FONT_WEIGHT,
+                            content: DEFAULT_PROPS_VALUE.HEADER.CONTENT
+                        }
+                    },
+                ]
             },
             {
                 id: 3,
-                type: ELEMENT_TYPE.PARAGRAPH,
-                props: {
-                    color: DEFAULT_PROPS_VALUE.PARAGRAPH.COLOR,
-                    fontSize: DEFAULT_PROPS_VALUE.PARAGRAPH.FONT_SIZE,
-                    fontWeight: DEFAULT_PROPS_VALUE.PARAGRAPH.FONT_WEIGHT,
-                    content: DEFAULT_PROPS_VALUE.PARAGRAPH.CONTENT,
-                    align: DEFAULT_PROPS_VALUE.PARAGRAPH.ALIGN,
-                }
-            }
+                elements: [
+                    {
+                        id: 3,
+                        type: ELEMENT_TYPE.PARAGRAPH,
+                        props: {
+                            color: DEFAULT_PROPS_VALUE.PARAGRAPH.COLOR,
+                            fontSize: DEFAULT_PROPS_VALUE.PARAGRAPH.FONT_SIZE,
+                            fontWeight: DEFAULT_PROPS_VALUE.PARAGRAPH.FONT_WEIGHT,
+                            content: DEFAULT_PROPS_VALUE.PARAGRAPH.CONTENT,
+                            align: DEFAULT_PROPS_VALUE.PARAGRAPH.ALIGN,
+                        }
+                    }
+                ]
+            },
         ]
     },
     {
@@ -128,43 +143,118 @@ export const TEMPLATES = [
             backgroundColor: DEFAULT_PROPS_VALUE.TEMPLATE.BACKGROUND_COLOR,
             contentWidth: DEFAULT_PROPS_VALUE.TEMPLATE.CONTENT_WIDTH,
         },
-        elements: [
+        slots: [
             {
                 id: 1,
-                type: ELEMENT_TYPE.HEADER,
-                props: {
-                    color: DEFAULT_PROPS_VALUE.HEADER.COLOR,
-                    fontSize: DEFAULT_PROPS_VALUE.HEADER.FONT_SIZE,
-                    fontWeight: DEFAULT_PROPS_VALUE.HEADER.FONT_WEIGHT,
-                    content: DEFAULT_PROPS_VALUE.HEADER.CONTENT
-                }
+                styles: {
+                    border: "1px solid #000000",
+                },
+                elements: [
+                    {
+                        id: 1,
+                        type: ELEMENT_TYPE.IMAGE,
+                        props: {
+                            contentWidth: DEFAULT_PROPS_VALUE.IMAGE.CONTENT_WIDTH,
+                            contentHeight: DEFAULT_PROPS_VALUE.IMAGE.CONTENT_HEIGHT
+                        }
+                    },
+                ]
             },
             {
                 id: 2,
-                type: ELEMENT_TYPE.PARAGRAPH,
-                props: {
-                    color: DEFAULT_PROPS_VALUE.PARAGRAPH.COLOR,
-                    fontSize: DEFAULT_PROPS_VALUE.PARAGRAPH.FONT_SIZE,
-                    fontWeight: DEFAULT_PROPS_VALUE.PARAGRAPH.FONT_WEIGHT,
-                    content: DEFAULT_PROPS_VALUE.PARAGRAPH.CONTENT,
-                    align: DEFAULT_PROPS_VALUE.PARAGRAPH.ALIGN,
-                }
+                styles: {
+                    borderBottom: "1px dashed #000000",
+                },
+                elements: [
+                    {
+                        id: 2,
+                        type: ELEMENT_TYPE.HEADER,
+                        props: {
+                            color: DEFAULT_PROPS_VALUE.HEADER.COLOR,
+                            fontSize: DEFAULT_PROPS_VALUE.HEADER.FONT_SIZE,
+                            fontWeight: DEFAULT_PROPS_VALUE.HEADER.FONT_WEIGHT,
+                            content: DEFAULT_PROPS_VALUE.HEADER.CONTENT
+                        }
+                    },
+                ]
             },
             {
                 id: 3,
-                type: ELEMENT_TYPE.BUTTON,
-                props: {
-                    color: DEFAULT_PROPS_VALUE.BUTTON.COLOR,
-                    backgroundColor: DEFAULT_PROPS_VALUE.BUTTON.BACKGROUND_COLOR,
-                    borderColor: DEFAULT_PROPS_VALUE.BUTTON.BORDER_COLOR,
-                    borderRadius: DEFAULT_PROPS_VALUE.BUTTON.BORDER_RADIUS,
-                    paddingY: DEFAULT_PROPS_VALUE.BUTTON.PADDING_Y,
-                    paddingX: DEFAULT_PROPS_VALUE.BUTTON.PADDING_X,
-                    fontSize: DEFAULT_PROPS_VALUE.BUTTON.FONT_SIZE,
-                    fontWeight: DEFAULT_PROPS_VALUE.BUTTON.FONT_WEIGHT,
-                    content: DEFAULT_PROPS_VALUE.BUTTON.CONTENT
-                }
+                elements: [
+                    {
+                        id: 3,
+                        type: ELEMENT_TYPE.PARAGRAPH,
+                        props: {
+                            color: DEFAULT_PROPS_VALUE.PARAGRAPH.COLOR,
+                            fontSize: DEFAULT_PROPS_VALUE.PARAGRAPH.FONT_SIZE,
+                            fontWeight: DEFAULT_PROPS_VALUE.PARAGRAPH.FONT_WEIGHT,
+                            content: DEFAULT_PROPS_VALUE.PARAGRAPH.CONTENT,
+                            align: DEFAULT_PROPS_VALUE.PARAGRAPH.ALIGN,
+                        }
+                    }
+                ]
+            },
+            {
+                id: 4,
+                elements: [
+                    {
+                        id: 4,
+                        type: ELEMENT_TYPE.IMAGE,
+                        props: {
+                            contentWidth: DEFAULT_PROPS_VALUE.IMAGE.CONTENT_WIDTH,
+                            contentHeight: DEFAULT_PROPS_VALUE.IMAGE.CONTENT_HEIGHT
+                        }
+                    },
+                    {
+                        id: 5,
+                        type: ELEMENT_TYPE.IMAGE,
+                        props: {
+                            contentWidth: DEFAULT_PROPS_VALUE.IMAGE.CONTENT_WIDTH,
+                            contentHeight: DEFAULT_PROPS_VALUE.IMAGE.CONTENT_HEIGHT
+                        }
+                    },
+                ]
+            },
+            {
+                id: 5,
+                styles: {
+                    borderBottom: "1px dashed #000000"
+                },
+                elements: [
+                    {
+                        id: 6,
+                        type: ELEMENT_TYPE.PARAGRAPH,
+                        props: {
+                            color: DEFAULT_PROPS_VALUE.PARAGRAPH.COLOR,
+                            fontSize: DEFAULT_PROPS_VALUE.PARAGRAPH.FONT_SIZE,
+                            fontWeight: DEFAULT_PROPS_VALUE.PARAGRAPH.FONT_WEIGHT,
+                            content: DEFAULT_PROPS_VALUE.PARAGRAPH.CONTENT,
+                            align: DEFAULT_PROPS_VALUE.PARAGRAPH.ALIGN,
+                        }
+                    },
+                ]
+            },
+            {
+                id: 7,
+                elements: [
+                    {
+                        id: 7,
+                        type: ELEMENT_TYPE.BUTTON,
+                        props: {
+                            color: DEFAULT_PROPS_VALUE.BUTTON.COLOR,
+                            backgroundColor: DEFAULT_PROPS_VALUE.BUTTON.BACKGROUND_COLOR,
+                            borderColor: DEFAULT_PROPS_VALUE.BUTTON.BORDER_COLOR,
+                            borderRadius: DEFAULT_PROPS_VALUE.BUTTON.BORDER_RADIUS,
+                            paddingY: DEFAULT_PROPS_VALUE.BUTTON.PADDING_Y,
+                            paddingX: DEFAULT_PROPS_VALUE.BUTTON.PADDING_X,
+                            fontSize: DEFAULT_PROPS_VALUE.BUTTON.FONT_SIZE,
+                            fontWeight: DEFAULT_PROPS_VALUE.BUTTON.FONT_WEIGHT,
+                            content: DEFAULT_PROPS_VALUE.BUTTON.CONTENT
+                        }
+                    },
+                ]
             }
         ]
-    }
+    },
+ 
 ];

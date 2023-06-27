@@ -2,7 +2,7 @@
     width: 100%;
     max-height: 62px;
 
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #000000;
 
     display: flex;
     align-items: center;
@@ -20,7 +20,7 @@
     height: 36px;
 
     border-radius: 50%;
-    border: 2px solid black;
+    border: 2px solid #000000;
 
     object-fit: cover;
 }
@@ -38,8 +38,8 @@
     border: none;
     border-radius: 10px;
 
-    color: white;
-    background: black;
+    color: #ffffff;
+    background: #000000;
 
     cursor: pointer;
     transition: all 0.3s ease;
