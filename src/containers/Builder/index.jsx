@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 
 import cloneObject from '../../helpers/logic/cloneObject';
+import { TEMPLATE_DISPLAY_STYLE, ELEMENT_WRAPPER_STYLE } from '../../helpers/data/styles';
 import { ELEMENT_TYPE, FONT_WEIGHT_OPTIONS, ALIGN_OPTIONS } from '../../helpers/data/templates';
 
 import Input from '../../components/common/Input';
@@ -37,7 +38,7 @@ const Builder = () => {
             case ELEMENT_TYPE.IMAGE:
                 return <img src={imagePlaceholder} alt='placeholder' style={{width: `${props?.contentWidth}px`, height: `${props?.contentHeight}px`}} />
             case ELEMENT_TYPE.HEADER:
-                return <h1 style={{color: props?.color, fontSize: `${props?.fontSize}px`, fontWeight: props?.fontWeight}}>{props?.content}</h1>
+                return <h1 style={{color: props?.color, fontSize: `${props?.fontSize}px`, fontWeight: props?.fontWeight, textAlign: "center"}}>{props?.content}</h1>
             
             case ELEMENT_TYPE.PARAGRAPH:
                 return <p style={{color: props?.color, fontSize: `${props?.fontSize}px`, fontWeight: props?.fontWeight, textAlign: props?.align, width: "100%"}}>{props?.content}</p>
@@ -116,9 +117,9 @@ const Builder = () => {
     return (
         <div className={styles.builderWrapper}>
             <section className={styles.templatePanel}>
-                <div className={styles.templateDisplay} style={{backgroundColor: template?.props?.backgroundColor, width: `${template?.props?.contentWidth}%`}} onClick={(e) => handleSelectTemplate(e)}>
+                <div id='templateDisplay' style={{ ...TEMPLATE_DISPLAY_STYLE , backgroundColor: template?.props?.backgroundColor, width: `${template?.props?.contentWidth}%`}} onClick={(e) => handleSelectTemplate(e)}>
                     {template?.elements?.map(item => (
-                        <div key={item?.id} className={`${styles.elementWrapper} ${selectedElement?.id === item?.id ? styles.selectedElement : ""}`} onClick={(e) => handleSelectElement(e, item)}>
+                        <div key={item?.id} style={{...ELEMENT_WRAPPER_STYLE}} className={selectedElement?.id === item?.id ? styles.selectedElement : ""} onClick={(e) => handleSelectElement(e, item)}>
                             {renderElement(item)}
                         </div>
                     ))}

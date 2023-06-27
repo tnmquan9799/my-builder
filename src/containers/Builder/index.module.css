@@ -21,36 +21,12 @@
     border-left: 2px solid black;
 }
 
-.templateDisplay {
-    height: calc(100vh - 62px);
-
-    overflow: hidden;
-    overflow-y: auto;
-
-    padding: 10%;
-}
-
-.elementWrapper {
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 12px 0px;
-    margin-bottom: 36px;
-
-    cursor: pointer;
-
-    border: 1px solid transparent;
-}
-
 .elementWrapper > img {
     border-radius: 8px;
 }
 
 .selectedElement {
-    border: 1px solid red;
+    border: 1px solid red !important;
 }
 
 .settingHeader {
