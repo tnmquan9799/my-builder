@@ -2,10 +2,13 @@ import { useState, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 
 import cloneObject from '../../helpers/logic/cloneObject';
-import { ELEMENT_TYPE } from '../../helpers/data/templates';
+import { ELEMENT_TYPE, FONT_WEIGHT_OPTIONS, ALIGN_OPTIONS } from '../../helpers/data/templates';
 
+import Input from '../../components/common/Input';
+import TextArea from '../../components/common/TextArea';
 import RangeSlider from '../../components/common/RangeSlider';
 import ColorPicker from '../../components/common/ColorPicker';
+import RadioButton from '../../components/common/RadioButton';
 
 import imagePlaceholder from '../../assets/images/image-placeholder.png';
 
@@ -32,35 +35,83 @@ const Builder = () => {
 
         switch (item?.type) {
             case ELEMENT_TYPE.IMAGE:
-                return <img src={imagePlaceholder} alt='image-placeholder' style={{width: props?.contentWidth, height: props?.contentHeight}} />
+                return <img src={imagePlaceholder} alt='placeholder' style={{width: `${props?.contentWidth}px`, height: `${props?.contentHeight}px`}} />
             case ELEMENT_TYPE.HEADER:
-                return <h1 style={{color: props?.color, fontSize: props?.fontSize, fontWeight: props?.fontWeight}}>{props?.content}</h1>
+                return <h1 style={{color: props?.color, fontSize: `${props?.fontSize}px`, fontWeight: props?.fontWeight}}>{props?.content}</h1>
             
             case ELEMENT_TYPE.PARAGRAPH:
-                return <p style={{color: props?.color, fontSize: props?.fontSize, fontWeight: props?.fontWeight, textAlign: props?.align}}>{props?.content}</p>
+                return <p style={{color: props?.color, fontSize: `${props?.fontSize}px`, fontWeight: props?.fontWeight, textAlign: props?.align, width: "100%"}}>{props?.content}</p>
             default:
                 return <div>undefined element</div>
         }
     }
 
-    const handleChangeTemplateProps = (type, value) => {
+    const handleChangeTemplateProps = useCallback((type, value) => {
         const tempTemplate = cloneObject(template);
 
         tempTemplate.props[type] = value;
 
         setTemplate(tempTemplate);
-    }
+    }, [template]);
+
+    const handleChangeElementProps = useCallback((type, value) => {
+        const tempTemplate = cloneObject(template);
+
+        const elementToChange = tempTemplate?.elements?.find((item) => item?.id === selectedElement?.id);
+
+        elementToChange.props[type] = value;
+
+        const tempElements = tempTemplate?.elements?.map((element) => element?.id === elementToChange?.id ? {...elementToChange} : {...element})
+            
+        setTemplate({...tempTemplate, elements: tempElements});
+    }, [selectedElement, template]);
 
     const renderSetting = useCallback(() => {
         if (!selectedElement?.id) {
             return (
                 <>
-                    <ColorPicker color={template?.props?.backgroundColor} onChange={(color) => handleChangeTemplateProps('backgroundColor', color)} />
-                    <RangeSlider value={template?.props?.contentWidth} onChange={(value) => handleChangeTemplateProps('contentWidth', value)} />
+                    <ColorPicker key="templateBackgroundColor" title="Background color" color={template?.props?.backgroundColor} onChange={(color) => handleChangeTemplateProps('backgroundColor', color)} />
+                    <RangeSlider key="templateContentWidth" title="Content width" value={template?.props?.contentWidth} onChange={(value) => handleChangeTemplateProps('contentWidth', value)} />
                 </>
             )
+        } else {
+            const { props } = selectedElement;
+
+            switch (selectedElement?.type) {
+                case ELEMENT_TYPE.IMAGE:
+                    return (
+                        <>
+                            <Input key={`${selectedElement?.type}-${selectedElement?.id}-contentWidth`} type="number" title="Width" value={props?.contentWidth} onChange={(value) => handleChangeElementProps('contentWidth', value)} />
+                            <Input key={`${selectedElement?.type}-${selectedElement?.id}-contentHeight`} type="number" title="Height" value={props?.contentHeight} onChange={(value) => handleChangeElementProps('contentHeight', value)} />
+                        </>
+                    )
+                case ELEMENT_TYPE.HEADER:
+                    return (
+                        <>
+                            <ColorPicker key={`${selectedElement?.type}-${selectedElement?.id}-color`} title="Color" color={props?.color} onChange={(color) => handleChangeElementProps('color', color)} />
+                            <Input key={`${selectedElement?.type}-${selectedElement?.id}-fontSize`} type="number" title="Font size" value={props?.fontSize} onChange={(value) => handleChangeElementProps('fontSize', value)}  />
+                            <RadioButton key={`${selectedElement?.type}-${selectedElement?.id}-fontWeight`} options={FONT_WEIGHT_OPTIONS} title="Font weight" value={props?.fontWeight} onChange={(value) => handleChangeElementProps('fontWeight', value)} />
+                            <Input key={`${selectedElement?.type}-${selectedElement?.id}-content`} title="Content" value={props?.content} onChange={(value) => handleChangeElementProps('content', value)}  />
+                        </>
+                    )
+                
+                case ELEMENT_TYPE.PARAGRAPH:
+                    return (
+                        <>
+                            <ColorPicker key={`${selectedElement?.type}-${selectedElement?.id}-color`} title="Color" color={props?.color} onChange={(color) => handleChangeElementProps('color', color)} />
+                            <Input key={`${selectedElement?.type}-${selectedElement?.id}-fontSize`} type="number" title="Font size" value={props?.fontSize} onChange={(value) => handleChangeElementProps('fontSize', value)}  />
+                            <RadioButton key={`${selectedElement?.type}-${selectedElement?.id}-fontWeight`} options={FONT_WEIGHT_OPTIONS} title="Font weight" value={props?.fontWeight} onChange={(value) => handleChangeElementProps('fontWeight', value)} />
+                            {/* <Input key={`${selectedElement?.type}-${selectedElement?.id}-content`} title="Content" value={props?.content} onChange={(value) => handleChangeElementProps('content', value)}  /> */}
+                            <TextArea key={`${selectedElement?.type}-${selectedElement?.id}-content`} title="Content" value={props?.content} onChange={(value) => handleChangeElementProps('content', value)}  />
+                            <RadioButton key={`${selectedElement?.type}-${selectedElement?.id}-align`} options={ALIGN_OPTIONS} title="Align" value={props?.align} onChange={(value) => handleChangeElementProps('align', value)} />
+                            
+                        </>
+                    )
+                default:
+                    return <div>undefined setting</div>
+            }
         }
-    }, [selectedElement. template])
+    }, [selectedElement, template, handleChangeTemplateProps, handleChangeElementProps])
 
     return (
         <div className={styles.builderWrapper}>

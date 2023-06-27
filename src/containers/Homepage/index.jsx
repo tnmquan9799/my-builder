@@ -7,6 +7,8 @@ import {ROUTES} from '../../routes/constants';
 
 import { TEMPLATES } from '../../helpers/data/templates';
 
+import { TEMPLATE_KEY } from '../../constants';
+
 import styles from './index.module.css';
 
 const Homepage = () => {
@@ -15,6 +17,9 @@ const Homepage = () => {
 
     const handleClickTemplate = (item) => {
         dispatch(actionSetSelectedTemplate(item));
+        
+        localStorage.setItem(TEMPLATE_KEY, JSON.stringify(item));
+
         navigate(ROUTES.BUILDER);
     }
 

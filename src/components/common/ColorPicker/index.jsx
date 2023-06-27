@@ -1,10 +1,10 @@
 import styles from './index.module.css';
 
-const ColorPicker = ({ color, onChange }) => {
+const ColorPicker = ({ title, color, onChange }) => {
     return (
         <div className={styles.colorPickerWrapper}>
             <label htmlFor="color">
-                Color:
+                {title}:
             </label>
             <input type='color' defaultValue={color} onChange={(e) => onChange(e?.target?.value)} />
         </div>

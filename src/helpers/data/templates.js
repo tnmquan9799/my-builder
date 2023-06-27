@@ -7,13 +7,13 @@ export const ELEMENT_TYPE = {
 export const FONT_WEIGHT_OPTIONS = [
     {
         id: 1,
-        label: "light",
-        value: "light",
+        label: "lighter",
+        value: "lighter",
     },
     {
         id: 2,
-        label: "regular",
-        value: "regular",
+        label: "normal",
+        value: "normal",
     },
     {
         id: 3,
@@ -48,22 +48,22 @@ export const ALIGN_OPTIONS = [
 export const DEFAULT_PROPS_VALUE = {
     TEMPLATE: {
         BACKGROUND_COLOR: "#b3cee5",
-        CONTENT_WIDTH: "100",
+        CONTENT_WIDTH: "100", // 100%
     },
     IMAGE: {
-        CONTENT_WIDTH: "300px",
-        CONTENT_HEIGHT: "200px",
+        CONTENT_WIDTH: 300, // pixel
+        CONTENT_HEIGHT: 200, // pixel
     },
     HEADER: {
         COLOR: "#000000",
-        FONT_SIZE: "36px",
+        FONT_SIZE: 36,
         FONT_WEIGHT: "bold",
         CONTENT: "Header looks like this in template"
     },
     PARAGRAPH: {
         COLOR: "#000000",
-        FONT_SIZE: "14px",
-        FONT_WEIGHT: "regular",
+        FONT_SIZE: 14,
+        FONT_WEIGHT: "normal",
         CONTENT: "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         ALIGN: "center"
     }

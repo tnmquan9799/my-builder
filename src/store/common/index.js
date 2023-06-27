@@ -1,8 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit"
 
+import { TEMPLATE_KEY } from "../../constants";
+
+const existingTemplate = localStorage.getItem(TEMPLATE_KEY);
+
 const initialState = {
     isBuilderMode: false,
-    selectedTemplate: {},
+    selectedTemplate: existingTemplate ? JSON.parse(existingTemplate) : {} ,
 };
 
 const commonSlice = createSlice({
