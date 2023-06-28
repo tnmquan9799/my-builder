@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { actionSetSelectedTemplate } from "../../store/common"; 
 
-import {ROUTES} from "../../routes/constants";
+import { ROUTES } from "../../routes/constants";
 
 import { TEMPLATES } from "../../helpers/data/templates";
 

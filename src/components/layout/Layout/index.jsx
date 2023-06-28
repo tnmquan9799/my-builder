@@ -2,9 +2,9 @@ import { Outlet, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import {actionSetIsBuilderMode} from "../../../store/common";
+import { actionSetIsBuilderMode } from "../../../store/common";
 
-import {ROUTES} from "../../../routes/constants";
+import { ROUTES } from "../../../routes/constants";
 
 import Header from "../Header";
 

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import {ROUTES} from "../../../routes/constants";
+import { ROUTES } from "../../../routes/constants";
 
 import avatar from "../../../assets/images/avatar.jpg";
 

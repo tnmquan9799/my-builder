@@ -6,3 +6,7 @@
     justify-content: space-between;
     gap: 12px;
 }
+
+.colorPickerWrapper > input {
+    block-size: 50px;
+}
